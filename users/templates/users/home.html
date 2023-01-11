@@ -1,27 +1,70 @@
-{% extends "users/base.html" %}
-{% block title %} Home Page {% endblock title%}
-{% block content %}
-    <div class="jumbotron">
-        <h1 class="display-4">Welcome, {{user.first_name.title|default:'Guest'}}</h1>
-        <p class="lead">
-            This is <b>user registration and login system</b> build with django which is
-            a Python-based free and open-source web framework that follows the model–template–views architectural pattern.
-        </p>
-        <hr class="my-4">
-        <p class="lead">
-            {% if user.is_authenticated %}
-                <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Logout</a>
-            {% else %}
-                <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Sign in</a>
-            {% endif %}
-        </p>
-        <p class="lead">
-            {% if user.is_authenticated %}
-                <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Logout</a>
-            {% else %}
-                <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Sign in</a>
-            {% endif %}
-        </p>
-    </div>
+<!DOCTYPE html>
 
-{% endblock content %}
+{% load static %}
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+    
+ 
+    <!-- 부트스트랩 -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+    <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <div class="wrap">
+
+      <style>
+        
+      </style>
+      <header>
+
+      </header>
+      <section>
+        <div class="intro-title-img">
+          <img src="{% static '/assets/images/crypto.png' %}"/>
+        </div>
+        <div class="intro-title-box">
+          <h2>
+            Access Decentralized<br/>Finance
+          </h2>
+          
+          <p>
+            It’s year 2023.<br/>
+            You no longer need banks and<br/>
+            brokerage platforms.
+          </p>
+        </div>
+        <div class="">
+          <a href="{% url 'users-register' %}" class="btn btn-gray btn-wide">
+            회원가입
+          </a>
+          <a href="{% url 'login' %}" class="btn btn-white btn-wide">
+            로그인
+          </a>
+
+          <a href="{% url 'password_reset' %}" class="btn text-link ">
+            회원정보 찾기
+          </a>
+        </div>
+      </section>
+      
+    </div>
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+    <script src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>
+

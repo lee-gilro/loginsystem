@@ -1,0 +1,708 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta property="og:image" content="https://lxrnwallet.com/images/ogimg0101.jpg">
+<meta name="msapplication-TileColor" content="#ffffff">
+<!-- <meta name="msapplication-TileImage" content="https://lxrnwallet.com/images/favicon.png"> -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+<title>LXRN</title>
+<link rel="stylesheet" href="https://lxrnwallet.com/css/mobile.css?ver=210618" rel="preload" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="https://lxrnwallet.com/js/font-awesome/css/font-awesome.min.css?ver=210618">
+<!--[if lte IE 8]>
+<script src="https://lxrnwallet.com/js/html5.js"></script>
+<![endif]-->
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "https://lxrnwallet.com";
+var g5_bbs_url   = "https://lxrnwallet.com/bbs";
+var g5_is_member = "1";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "";
+var g5_sca       = "";
+var g5_editor    = "";
+var g5_cookie_domain = "";
+var g5_shop_url = "https://lxrnwallet.com/shop";
+</script>
+
+<script src="https://lxrnwallet.com/js/jquery-1.12.4.min.js?ver=210618"></script>
+<script src="https://lxrnwallet.com/js/jquery-migrate-1.4.1.min.js?ver=210618"></script>
+<script src="https://lxrnwallet.com/js/jquery.menu.js?ver=210618" async></script>
+<script src="https://lxrnwallet.com/js/common.js?ver=210618"></script>
+<script src="https://lxrnwallet.com/js/wrest.js?ver=210618" async></script>
+<script src="https://lxrnwallet.com/js/placeholders.min.js" async></script>
+</head>
+<body>
+<div id="hd_login_msg">님 로그인 중 <a href="https://lxrnwallet.com/bbs/logout.php">로그아웃</a></div>
+<style>
+#header{background:transparent;position: relative;margin:0 auto;width:100%;min-width:320px;z-index:1000;max-width:720px;}
+/* #header.on{background:#b9d2f7;} */
+.logo{text-align:center;margin:0 auto;position:absolute;left:30px;transform:translate(-0%,-50%);top:50%;}
+.logo .on_logo {display: none;}
+.logo.on .on_logo {display: block;}
+.logo.on .off_logo {display: none;}
+.hd_gnb01{display:block;position:absolute;left:30px;top:50%;transform:translateY(-50%);z-index:998;color:#fff;font-size:23px;border:1px solid #fff;border-radius:50px;width:190px;height:60px;line-height:60px;text-align:center}
+.hd_gnb01.on{display:block;color: #000; border:1px solid #000}
+.hd_gnb01 .on_lan {display: none;}
+.hd_gnb01.on .on_lan {display: inline-block;}
+.hd_gnb01.on .off_lan {display: none;}
+.hd_gnb01 img{margin-right:8px;}
+
+#gnb{display:block;position:fixed;top:0;right:0;height:100%;z-index:1005;width:600px;max-width:600px;-webkit-transform:translate3d(200%,0,0);
+transform:translate3d(200%,0,0);-webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;-ms-transition:all .5s ease-in-out;-o-transition:all .5s ease-in-out;transition:all .5s ease-in-out;
+-ms-overflow-style:none; scrollbar-width:none;overflow-y: scroll;background:#010101;padding-top:150px;}
+#gnb.show_gnb{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+#gnb::-webkit-scrollbar{display:none;}
+#gnb ul li {text-align:left;line-height: 68px;}
+#gnb ul > li > a{color:#fff;text-align:center;font-size:35px;font-weight:400}
+#gnb .gnb_inner{width:100%; max-width:720px; margin:0 auto;padding-left:30px;}
+#gnb .gnb_inner ul li a{position: relative;background-repeat: no-repeat;position: relative;padding: 30px 0px 30px 100px;/* opacity: .3; */}
+#gnb .gnb_inner ul li a.on{color:#efa021;opacity: 1;}
+#gnb .gnb_inner ul li:nth-child(1) a {background-image: url(/images/img/gnb_icon01.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(2) a {background-image: url(/images/img/gnb_icon02.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(3) a {background-image: url(/images/img/gnb_icon03.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(4) a {background-image: url(/images/img/gnb_icon04.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(5) a {background-image: url(/images/img/gnb_icon05.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(6) a {background-image: url(/images/img/gnb_icon06.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(7) a {background-image: url(/images/img/gnb_icon07.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(1) a.on {background-image: url(/images/img/gnb_icon01_on.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(2) a.on {background-image: url(/images/img/gnb_icon02_on.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(3) a.on {background-image: url(/images/img/gnb_icon03_on.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(4) a.on {background-image: url(/images/img/gnb_icon04_on.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(5) a.on {background-image: url(/images/img/gnb_icon05_on.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(6) a.on {background-image: url(/images/img/gnb_icon06_on.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(7) a.on {background-image: url(/images/img/gnb_icon07_on.png);background-position: 10px 50%;}
+
+
+.hd_top{width:100%; max-width:720px; height:100px; margin:0 auto; position:relative; z-index:7778;transition:background-color 0.3s ease-in-out;}
+.hd_top .sc{height:100%;}
+.gnb_bgbg {display:none;position:fixed;left:50%;top:0;;width:720px;height:100%;margin-left:-360px;background:rgba(0,0,0,.4);z-index:1001;}
+.hd_bottom{text-align:Center;padding:40px 0}
+.hd_bottom li{display:inline-block;padding-right: 9px;}
+.hd_bottom li:last-child{padding-right:0}
+
+/* 메뉴 */
+.menu_wrap {float:right;position:relative;width:30px;height:100px;}
+.menu_box {position:absolute;right:30px;top:50%;transform:translateY(-50%);z-index:998;margin-top:1px;}
+.menu-trigger,.menu-trigger span {display: inline-block;transition: all 0.4s;box-sizing: border-box;}
+.menu-trigger {position: relative;width: 30px;height:24px;cursor:pointer;}
+.menu-trigger span {position: absolute;right: 0;width: 8px;height: 8px;background-color: #111;border-radius: 100%;}
+.menu-trigger span:nth-of-type(1) {top:0;}
+.menu-trigger span:nth-of-type(2) {top:20px;}
+.menu-trigger span:nth-of-type(3) {right:20px;}
+.menu-trigger span:nth-of-type(4) {right:20px;top:20px}
+.menu-trigger span.on {background-color: #fff;}
+
+/* 2th bar 사라지고,  1st 3rd bar 회전하며 X  */
+.menu-trigger.active-1 span:nth-of-type(1) {transform:translateY(11px) rotate(-45deg);width:100%;border-radius:0;height:2px}
+.menu-trigger.active-1 span:nth-of-type(2) {transform:translateY(-11px) rotate(45deg);width:100%;border-radius:0;height:2px}
+.menu-trigger.active-1 span:nth-of-type(3) {opacity:0;}
+.menu-trigger.active-1 span:nth-of-type(4) {opacity:0;}
+.hd_center{font-size:35px;color:#fff;position: absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+@media (max-width: 720px) {
+.hd_center{font-size:4.8611vw;left:50%;top:50%;transform:translate(-50%,-50%)}
+#header{width:100%;min-width:44.4444vw;max-width:100.0000vw;}
+.logo{margin:0 auto;left:4.1667vw;transform:translate(-0%,-50%);top:50%;}
+.logo img {width:34.8611vw}
+.logo.back img{width:2.6389vw;height:5.1389vw}
+.logo.on{display:none}
+.hd_gnb01{left:4.1667vw;top:50%;transform:translateY(-50%);font-size:3.1944vw;width:26.3889vw;height:8.3333vw;line-height:8.3333vw;}
+.hd_gnb01 img{margin-right:1.1111vw;width:3.3333vw;height:3.3333vw}
+#gnb{top:0;right:0;height:100%;width:83.3333vw;max-width:83.3333vw;-webkit-transform:translate3d(200%,0,0);
+transform:translate3d(200%,0,0);-webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;-ms-transition:all .5s ease-in-out;-o-transition:all .5s ease-in-out;transition:all .5s ease-in-out;
+-ms-overflow-style:none; scrollbar-width:none;overflow-y: scroll;background:#010101;padding-top:20.8333vw;}
+#gnb.show_gnb{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+#gnb::-webkit-scrollbar{}
+#gnb ul li {line-height: 9.4444vw;}
+#gnb ul > li > a{font-size:4.8611vw;font-weight:400}
+#gnb .gnb_inner{width:100%; max-width:100.0000vw; margin:0 auto;padding-left:4.1667vw;}
+#gnb .gnb_inner ul li a{padding: 4.1667vw 0.0000vw 4.1667vw 13.8889vw;}
+#gnb .gnb_inner ul li:nth-child(1) a {background-image: url(/images/img/gnb_icon01.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(2) a {background-image: url(/images/img/gnb_icon02.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(3) a {background-image: url(/images/img/gnb_icon03.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(4) a {background-image: url(/images/img/gnb_icon04.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(5) a {background-image: url(/images/img/gnb_icon05.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(6) a {background-image: url(/images/img/gnb_icon06.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(7) a {background-image: url(/images/img/gnb_icon07.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(1) a.on {background-image: url(/images/img/gnb_icon01_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(2) a.on {background-image: url(/images/img/gnb_icon02_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(3) a.on {background-image: url(/images/img/gnb_icon03_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(4) a.on {background-image: url(/images/img/gnb_icon04_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(5) a.on {background-image: url(/images/img/gnb_icon05_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(6) a.on {background-image: url(/images/img/gnb_icon06_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(7) a.on {background-image: url(/images/img/gnb_icon07_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+
+.hd_top{width:100%; max-width:100.0000vw; height:13.8889vw; margin:0 auto;  transition:background-color 0.3s ease-in-out;}
+.hd_top .sc{height:100%;}
+.hd_top .hd_swap {line-height: 4.8611vw;font-size: 2.7778vw;left: 4.1667vw;top: 4.1667vw;}
+.hd_top .hd_swap img {margin-right: 0.6944vw;}
+.hd_top .hd_swap img.icon_swap {width: 4.8611vw;}
+.hd_top .hd_swap img.icon_send {width: 4.1667vw;}
+.hd_bottom{padding:5.5556vw 0}
+.hd_bottom li{padding-right: 1.2500vw;}
+.hd_bottom li:last-child{padding-right:0}
+
+/* 메뉴 */
+.menu_wrap {width:4.1667vw;height:13.8889vw;}
+.menu_box {right:4.1667vw;top:50%;transform:translateY(-50%);margin-top:0.1389vw;}
+.menu-trigger,.menu-trigger span {transition: all 0.4s;}
+.menu-trigger {width: 4.1667vw;height:3.3333vw;cursor:pointer;}
+.menu-trigger span {right: 0;width: 1.1111vw;height: 1.1111vw;border-radius: 100%;}
+.menu-trigger span:nth-of-type(1) {top:0;}
+.menu-trigger span:nth-of-type(2) {top:2.7778vw;}
+.menu-trigger span:nth-of-type(3) {right:2.7778vw;}
+.menu-trigger span:nth-of-type(4) {right:2.7778vw;top:2.7778vw}
+.menu-trigger span.on {}
+
+/* 2th bar 사라지고,  1st 3rd bar 회전하며 X  */
+.menu-trigger.active-1 span:nth-of-type(1) {transform:translateY(1.5278vw) rotate(-45deg);width:100%;border-radius:0;height:0.2778vw}
+.menu-trigger.active-1 span:nth-of-type(2) {transform:translateY(-1.5278vw) rotate(45deg);width:100%;border-radius:0;height:0.2778vw}
+.menu-trigger.active-1 span:nth-of-type(3) {opacity:0;}
+.menu-trigger.active-1 span:nth-of-type(4) {opacity:0;}
+}
+</style>
+
+<style>
+.menu-trigger span{background-color: #fff;}
+</style>
+<style>
+#header{position: absolute;left:50%;margin:0 auto;margin-left:-360px;}
+.menu-trigger span{background-color: #fff;}
+@media (max-width: 720px) {
+#header{position: absolute;left:0;margin:0 auto;margin-left:0;}
+}
+</style>
+<!-- 상단 시작 { -->
+<div id="header">
+    	<div class="hd_top">
+		<div class="sc clearfix">
+						<a class="logo back" href="https://lxrnwallet.com">
+				<img src="/images/back.png" alt="" class=""/>
+			</a>
+						<div class="hd_center gmarketM"></div>
+			<div class="menu_wrap">
+				<div class="menu_box">
+					<span class="tit_name"></span>
+					<div class="menu-trigger gnb_btn01" onclick="imgToggle()">
+					  <span></span>
+					  <span></span>
+					  <span></span>
+					  <span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="gnb">
+		<div class="gnb_inner">
+			<ul class="clearfix">
+				<li><a href="https://lxrnwallet.com/bbs/page.php?pid=wallet" class="">Wallet</a></li>
+				<li><a href="https://lxrnwallet.com/bbs/page.php?pid=wallet_lockup" class="">Lockup</a></li>
+				<li><a href="https://lxrnwallet.com/bbs/page.php?pid=electroniccontract_terms" class="">Electronic contract</a></li>
+				<li><a href="https://lxrnwallet.com/bbs/board.php?bo_table=notice" class="">Notice</a></li>
+				<li><a href="https://lxrnwallet.com/bbs/board.php?bo_table=faq" class="">FAQ</a></li>
+				<li><a href="https://lxrnwallet.com/bbs/page.php?pid=mypage" class="on">My page</a></li>
+								<li><a href="https://lxrnwallet.com/bbs/logout.php" class="">Logout</a></li>
+							</ul>	
+		</div>
+	</div>
+	<div class="gnb_bgbg"><a class="gnb_close" href="javascript:;"></a></div>
+</div>
+
+<script>
+$(function(){
+	$('.gnb_btn01').click(function(){
+		$('#header').toggleClass('on');
+		$('.hd_gnb01').toggleClass('on');
+		//$('#gnb').stop().slideToggle(300);
+		$("#gnb").toggleClass('show_gnb');
+		$(".gnb_bgbg").fadeToggle();
+	});
+	$(".gnb_bgbg").click(function(){
+	//	$("#gnb").stop().removeClass('show_gnb');
+	//	$(this).stop().fadeOut(400);
+	//	$(".gnb_btn").removeClass('show_gnb');
+	});	
+	var scroll_pos = 0;
+	const menuTrigger = document.querySelector('.menu-trigger');
+
+	menuTrigger.addEventListener('click', (event) => {
+	  event.currentTarget.classList.toggle('active-1');
+	});
+	$('.menu-trigger').on('click',function(){
+		//$('#gnb').toggle();
+		$('.logo').toggleClass('on');
+		$('.hd_swap').toggleClass('on');
+		$('.menu-trigger span').toggleClass('on');
+		$('.menu_wrap').toggleClass('on');
+		$('.menu-trigger').on('click',function(){
+			$('.sub_full').toggle();
+		});
+	});
+});
+</script>
+
+<div class="all_wrap">
+
+
+
+<style>
+.my_top{padding:0 30px;text-align:left;position: relative;}
+.my_top .set_btn{position: absolute;right:30px;top:20px}
+.my_top .set_btn.ad_btn{position: absolute;right:60px;top:20px}
+.sc_top h2{font-size:45px;}
+.sc_inner {width: 100%;padding: 0px 30px 0;}
+.profile_top {}
+.profile_top .profile_bx{background:#f8f8f8;padding:0;}
+.profile_top .pro_top{background: #1891eb;font-size:25px;color:#fff;padding:20px 40px}
+.profile_top .pro_top .left{font-weight:bold}
+.profile_top .pro_top .left img {position: relative;top: -2px;}
+.profile_top .pro_top .right{font-size:20px;line-height: 40px;}
+.profile_top .pro_top .right a {color: #fff;}
+.profile_top .pro_top .right a img {position: relative;top: -2px;}
+.profile_top .pro_bottom{color:#bababa;font-size:24px;letter-spacing: -0.04em;}
+.profile_top .pro_bottom b{padding-right:20px;display: inline-block;}
+.profile_top .pro_bottom span{font-weight:300}
+.profile_top .pro_bottom a {float: right;color: #e39303;font-size: 20px;}
+.profile_top .pro_bottom a img {position: relative;top: -2px;margin-right: 5px;}
+.profile_top .pro_bo{padding:20px 0}
+
+.recommend_code {}
+.recommend_code .code_wrap {border-radius:10px;border:1px solid #dedede;overflow:hidden}
+.recommend_code .code_wrap dt {float: left;width: calc(100% - 200px);font-size: 42px;font-weight: bold;color: #e39303;padding-left: 30px;height: 76px;background: #fff;}
+.recommend_code .code_wrap dt input {background: none;color: #000;font-weight: bold;}
+.recommend_code .code_wrap dd {float: right;width: 80px;}
+.recommend_code .code_wrap dd a {display: block;line-height: 76px;text-align: center;line-height: 76px;font-size: 20px;color: #fff;background:#efa021}
+.recommend_code .code_wrap dd img {position: relative;top: -2px;}
+
+.recommend_list {margin-top: 30px;}
+.recommend_list table {width: 100%;border-spacing: 1px;}
+.recommend_list th {font-size: 24px;color: #fff;background: #efa021;padding: 18px 0;border-bottom: 1px solid #e0e0e0;font-weight: 400;}
+.recommend_list th:nth-child(1) {width: 30%;}
+.recommend_list th:nth-child(2) {width: 35%;}
+.recommend_list th:nth-child(3) {width: 35%;}
+.recommend_list td {text-align: center;color: #000;padding: 15px 0;font-size: 22px;border-bottom: 1px solid #e0e0e0;}
+
+.profile_bx ul li a span {padding: 0;}
+.profile_bx .wallet_img {display: inline-block;text-align: center;margin-right: 10px;}
+
+/* .profile_btn {margin: 70px 30px 0;} */
+
+
+.profile_btn {margin: 70px 0px 0;background:transparent;border-radius:30px;/* padding:0px 30px;box-shadow:-5px -10px 20px rgba(225,225,225,0.1) */}
+.profile_btn li {width: 100%;}
+.profile_btn li a {display: block;width: 100%;border-top: 1px solid #cccccc;padding: 30px 0px 30px 100px;font-size: 25px;position: relative;background-repeat: no-repeat;position: relative;color:#000}
+.profile_btn li:nth-child(1) a {background-image: url(/images/img/gnb_icon03_on.png);background-position: 25px 50%;border-top:2px solid #efa021;}
+.profile_btn li:nth-child(2) a {background-image: url(/images/img/gnb_icon04_on.png);background-position: 25px 50%;}
+.profile_btn li:nth-child(3) a {background-image: url(/images/img/gnb_icon05_on.png);background-position: 25px 50%;}
+.profile_btn li:last-child a {background-image: url(/images/my_btn04.png);background-position: 25px 50%;border-bottom: 2px solid #efa021;}
+.profile_btn li a:after {content: '';display: block;clear: both;width: 14px;height: 27px;background: url(/images/img/plus_w.png) no-repeat 50% 50%;position: absolute;top: 50%;right: 40px;transform: translateY(-50%);}
+
+/* 하단 이용약관, 취급방침 */
+.my_bot_list {margin: 70px 0px 0;background:transparent;border-radius:30px;/* padding:0px 30px;box-shadow:-5px -10px 20px rgba(225,225,225,0.1) */}
+.my_bot_list li {width: 100%;padding:0 30px;box-shadow: 0px 10px 10px rgb(0 0 0 / 60%);margin-bottom: 20px;border-radius: 20px;background:#161616;}
+.my_bot_list li a {display: block;width: 100%;/* border-top: 1px solid #434343; */padding: 30px 0px 30px 60px;font-size: 25px;position: relative;background-repeat: no-repeat;position: relative;color:#fff;}
+.my_bot_list li:nth-child(1) a {background-image: url(/images/img/my_bot_btn01.png);background-position: 10px 50%;}
+.my_bot_list li:nth-child(2) a {background-image: url(/images/img/my_bot_btn01.png);background-position: 10px 50%;}
+.my_bot_list li:last-child a {background-image: url(/images/img/my_bot_btn01.png);background-position: 10px 50%;}
+.my_bot_list li:first-child a {border-top:0px;}
+.my_bot_list li a:after {content: '';display: block;clear: both;width: 14px;height: 27px;background: url(/images/img/my_arr.png) no-repeat 50% 50%;position: absolute;top: 50%;right: 0px;transform: translateY(-50%);}
+
+.my_news_wrap {padding-top:120px;padding-bottom:30px;}
+
+/* sol point */
+.my_sol_wrap {padding-top:70px;}
+.sol_con_name {margin-bottom:10px;margin-top:30px;}
+.sol_con_name ul {}
+.sol_con_name ul li {float:left;width:33.3333%;color:#848484;text-align:center;font-size:18px;font-weight:100;}
+
+.sol_con {border-top: 1px solid #777777;border-bottom: 1px solid #777777;}
+.sol_con ul {}
+.sol_con ul li {border-bottom:1px solid #777;padding:25px 30px;position: relative;}
+.sol_con ul li:after{content:'';display:block;clear: both;}
+.sol_con ul li span {font-size:22px;font-weight:300;color:#fff;}
+.sol_con ul li span.fir_txt {float:left;width:20%;}
+.sol_con ul li span.sec_txt {float:left;width:50%;text-align:center;}
+.sol_con ul li span.bold_txt {float:right;width:30%;text-align:right;font-size:26px;font-weight:700;}
+.sol_con ul li span.bold_txt span {font-size:20px;font-weight:100;color:#848484;}
+.sol_con ul li.empty_li {text-align: center;color: #fff;font-size: 22px;}
+
+.sol_con ul li:last-child{border-bottom:none;}
+
+.sol_more {}
+.sol_more a {display:block;width:100%;height:60px;line-height:60px;color:#fff;border:1px solid #fff;border-radius:30px;text-align:center;margin-top:20px;font-size:22px;font-weight:300;}
+.sol_more button {display:block;width:100%;height:60px;line-height:60px;color:#fff;border:1px solid #fff;border-radius:30px;text-align:center;margin-top:20px;font-size:22px;font-weight:300;background:transparent;}
+
+
+/* faq */
+.my_faq_wrap {margin-top:120px;}
+.my_faq_wrap .faq_wrap ul li.faq_list span.answer {display:none;}
+
+.my_faq_wrap .faq_wrap span:before {content: 'A';display: block;clear: both;position: absolute;left: 25px;top: 35px;font-size:25px;font-weight:700;color:#00e28b;}
+.my_faq_wrap .faq_wrap p:before {content: 'Q';display: block;clear: both;position: absolute;left: 22px;top: 30px;font-size:25px;font-weight:700;}
+
+
+.my_faq_wrap .faq_wrap {border-top:1px solid #777;border-bottom:1px solid #777;}
+.my_faq_wrap .faq_wrap ul li.faq_list {/* border-bottom:1px solid #e5e5e5; */position: relative;}
+.my_faq_wrap .faq_wrap ul li.no_list {border-bottom: 1px solid #383937;padding: 25px 30px;position: relative;text-align: center;font-size: 22px;}
+.my_faq_wrap .faq_wrap ul li.faq_list:after{content:'';display:block;clear: both;}
+.my_faq_wrap .faq_wrap ul li.faq_list p{font-size:27px;font-weight:400;color:#fff;position:relative;padding:30px 0px 30px 75px;border-bottom:1px solid #5b5b5b;;}
+.my_faq_wrap .faq_wrap ul li.faq_list p.on {color:#00e28b;}
+
+.my_faq_wrap .faq_wrap ul li.faq_list span{font-size:22px;color:#fff;font-weight:100;display:block;line-height: 1.5em;padding:35px 50px 35px 75px;position:relative;}
+.my_faq_wrap .faq_wrap ul li.faq_list:last-child{border-bottom:none;}
+
+
+@media (max-width: 720px) {
+
+.my_top{padding:0 4.1667vw;}
+.my_top .set_btn{right:4.1667vw;top:2.7778vw}
+.my_top .set_btn img{width:3.4722vw;height:3.4722vw;}
+.my_top .set_btn.ad_btn{right:8.3333vw;top:2.7778vw}
+.sc_top h2{font-size:6.2500vw;}
+.sc_inner {width: 100%;padding: 0.0000vw 4.1667vw 0;}
+.profile_top {}
+.profile_top .profile_bx{background:#f8f8f8;padding:0;}
+.profile_top .pro_top{background: #1891eb;font-size:3.4722vw;padding:2.7778vw 5.5556vw}
+.profile_top .pro_top .left{font-weight:bold}
+.profile_top .pro_top .left img {top: -0.2778vw;}
+.profile_top .pro_top .right{font-size:2.7778vw;line-height: 5.5556vw;}
+.profile_top .pro_top .right a {}
+.profile_top .pro_top .right a img {top: -0.2778vw;}
+.profile_top .pro_bottom{font-size:3.3333vw;letter-spacing: -0.04em;}
+.profile_top .pro_bottom b{padding-right:2.7778vw;}
+.profile_top .pro_bottom span{font-weight:300}
+.profile_top .pro_bottom a {font-size: 2.7778vw;}
+.profile_top .pro_bottom a img {top: -0.2778vw;margin-right: 0.6944vw;}
+.profile_top .pro_bo{padding:2.7778vw 0}
+
+.recommend_code {}
+.recommend_code .code_wrap {border-radius: 2.7778vw;
+-webkit-box-shadow: 0 0 1.3889vw rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0 0 1.3889vw rgba(0, 0, 0, 0.1);
+box-shadow: 0 0 1.3889vw rgba(0, 0, 0, 0.1);}
+.recommend_code .code_wrap dt {width: calc(100% - 27.7778vw);font-size: 5.8333vw;padding-left: 4.1667vw;height: 10.5556vw;}
+.recommend_code .code_wrap dt input {background: none;}
+.recommend_code .code_wrap dd {width:11.1111vw}
+.recommend_code .code_wrap dd a {line-height: 10.5556vw;line-height: 10.5556vw;font-size: 2.7778vw;}
+.recommend_code .code_wrap dd img {top: -0.2778vw;width: 2.6389vw;}
+
+.recommend_list {margin-top: 4.1667vw;}
+.recommend_list table {width: 100%;border-spacing: 0.1389vw;}
+.recommend_list th {font-size: 3.3333vw;padding: 2.5000vw 0;border-bottom: 0.1389vw solid #e0e0e0;}
+.recommend_list td {padding: 2.0833vw 0;font-size: 3.0556vw;border-bottom: 0.1389vw solid #e0e0e0;}
+
+.profile_bx{padding:0;border-radius:0}
+.profile_bx ul li a span {padding: 0;}
+.profile_bx .wallet_img {margin-right: 1.3889vw;}
+.profile_bx ul li .wallet_img img {width:44.4444vw;height:20.8333vw}
+.profile_bx ul li a:after {background-size: 1.9444vw;}
+
+/* .profile_btn {margin: 9.7222vw 4.1667vw 0;} */
+.profile_btn {margin: 9.7222vw 0 0;}
+
+.profile_btn li {width: 100%;/* padding:0 4.1667vw; */}
+.profile_btn li {width: 100%;}
+.profile_btn li a {width: 100%;border-top: 0.1389vw solid #cccccc;padding: 4.1667vw 0.0000vw 4.1667vw 13.8889vw;font-size: 3.4722vw;}
+.profile_btn li:nth-child(1) a {background-image: url(/images/img/gnb_icon03_on.png);background-position: 3.4722vw 50%;border-top:0.2778vw solid #efa021;background-size:8.3333vw}
+.profile_btn li:nth-child(2) a {background-image: url(/images/img/gnb_icon04_on.png);background-position: 3.4722vw 50%;background-size:8.3333vw}
+.profile_btn li:nth-child(3) a {background-image: url(/images/img/gnb_icon05_on.png);background-position: 3.4722vw 50%;background-size:8.3333vw}
+.profile_btn li:last-child a {background-image: url(/images/my_btn04.png);background-position: 3.4722vw 50%;border-bottom: 0.2778vw solid #efa021;background-size:8.3333vw}
+.profile_btn li a:after {clear: both;width: 1.9444vw;height: 3.7500vw;background-size: 1.9444vw;top: 50%;right: 5.5556vw;transform: translateY(-50%);}
+
+/* 하단 이용약관, 취급방침 */
+.my_bot_list li {width: 100%;}
+.my_bot_list li a {width: 100%;/* border-top: 0.1389vw solid #434343; */padding: 4.1667vw 0.0000vw 4.1667vw 13.8889vw;font-size: 3.4722vw;}
+.my_bot_list li:nth-child(1) a {background-image: url(/images/img/my_bot_btn01.png);background-position: 5.5556vw 50%;background-size: 5.6944vw;}
+.my_bot_list li:nth-child(2) a {background-image: url(/images/img/my_bot_btn01.png);background-position: 5.6944vw 50%;background-size: 5.5556vw;}
+.my_bot_list li:nth-child(3) a {background-image: url(/images/img/my_bot_btn01.png);background-position: 5.6944vw 50%;background-size: 5.4167vw;}
+.my_bot_list li:nth-child(4) a {background-image: url(/images/img/my_bot_btn01.png);background-position: 5.8333vw 50%;background-size: 5.1389vw;}
+.my_bot_list li:last-child a {background-image: url(/images/img/my_bot_btn01.png);background-position: 6.3889vw 50%;background-size: 4.1667vw;}
+.my_bot_list li:first-child a {border-top:0px;}
+.my_bot_list li a:after {clear: both;width: 1.9444vw;height: 3.7500vw;background: url(/images/img/my_arr.png) no-repeat 50% 50%;background-size: 1.9444vw;top: 50%;right: 0;transform: translateY(-50%);}
+
+
+/* sol point */
+.my_news_wrap {padding-top:16.6667vw;padding-bottom:4.1667vw;}
+
+.my_sol_wrap {padding-top:9.7222vw;}
+.sol_con_name {margin-bottom:10px;margin-top:30px;}
+.sol_con_name ul {}
+.sol_con_name ul li {font-size:2.5000vw;}
+
+.sol_con {border-top: 0.1389vw solid #777777;border-bottom: 0.1389vw solid #777777;}
+.sol_con ul {}
+.sol_con ul li {border-bottom:0.1389vw solid #777;padding:3.4722vw 4.1667vw;}
+.sol_con ul li:after{content:'';display:block;clear: both;}
+.sol_con ul li span {font-size:3.0556vw;}
+.sol_con ul li span.fir_txt {}
+.sol_con ul li span.sec_txt {}
+.sol_con ul li span.bold_txt {font-size:3.6111vw;}
+.sol_con ul li span.bold_txt span {font-size:2.7778vw;}
+.sol_con ul li.empty_li {font-size: 3.0556vw;}
+
+.sol_con ul li:last-child{border-bottom:none;}
+
+.sol_more a {width:100%;height:8.3333vw;line-height:8.3333vw;border:0.1389vw solid #fff;border-radius:4.1667vw;margin-top:2.7778vw;font-size:3.0556vw;}
+
+/* faq */
+.my_faq_wrap {margin-top:16.6667vw;}
+.my_faq_wrap .faq_wrap ul li.faq_list span.answer {}
+
+.my_faq_wrap .faq_wrap span:before {clear: both;left: 3.4722vw;top: 4.8611vw;font-size:3.4722vw;}
+.my_faq_wrap .faq_wrap p:before {clear: both;left: 3.0556vw;top: 4.1667vw;font-size:3.4722vw;}
+
+
+.my_faq_wrap .faq_wrap {border-top:0.1389vw solid #777;border-bottom:0.1389vw solid #777;}
+/* .my_faq_wrap .faq_wrap ul li.faq_list {border-bottom:0.1389vw solid #e5e5e5;} */
+.my_faq_wrap .faq_wrap ul li.no_list {border-bottom: 0.1389vw solid #383937;padding: 3.4722vw 4.1667vw;font-size: 3.0556vw;}
+.my_faq_wrap .faq_wrap ul li.faq_list:after{clear: both;}
+.my_faq_wrap .faq_wrap ul li.faq_list p{font-size:3.7500vw;padding:4.1667vw 0.0000vw 4.1667vw 10.4167vw;border-bottom:0.1389vw solid #5b5b5b;;}
+
+.my_faq_wrap .faq_wrap ul li.faq_list span{font-size:3.0556vw;line-height: 1.5em;padding:4.8611vw 6.9444vw 4.8611vw 10.4167vw;}
+.my_faq_wrap .faq_wrap ul li.faq_list:last-child{border-bottom:none;}
+
+}
+</style>
+
+<div class="index_wrap">
+    <div class="sc">
+        <div class="container">
+			<div class="sc_top sct01">
+				<div class="my_top">
+					<h2>skh1736 / songgwango</h2>
+					<div class="profile_top">
+						<div class="pro_bottom"><b>E-mail</b><span>rhkdgh1725@gmail.com</span></div>
+						<div class="pro_bottom"><b>핸드폰 번호</b><span>01050606143</span></div>									
+					</div>
+					<span class="set_btn"><a href="https://lxrnwallet.com/bbs/member_confirm.php?url=register_form.php"><img src="/images/my_adm.png" alt="" /></a></span>
+									</div>
+			</div>
+            <div class="sc_inner">
+				<div class="recommend_code">
+					<div class="my_title">추천인 코드</div>
+					<div class="code_wrap">
+						<dl class="clearfix">
+							<dt><input type="text" value= "7828" readonly id="code"></dt>
+							<dd><a href="javascript:copy2();"><img src="/images/my_share.png" alt="공유하기"></a></dd>
+						</dl>
+					</div>
+					<div class="recommend_list">
+						<div class="my_title">추천인 목록</div>
+						<div id="recommend">
+<!-- 추천 회원 목록 시작 { -->
+<section id="reservation_list">
+	<table>
+        <caption class="sound_only">추천 회원 목록</caption>
+		<thead>
+			<tr>
+				<th>가입날짜</th>
+				<th>아이디</th>
+
+			</tr>
+		</thead>
+		<tbody>
+						<tr>
+				<td colspan="3">추천한 회원이 없습니다.</td>
+			</tr>
+					</tbody>	
+	</table>
+</section>
+
+
+<script>
+$(function(){
+
+    $(".pg_recommend_page").click(function(){
+        $("#recommend").load($(this).attr("href"));
+        return false;
+    });
+
+});
+</script>
+<!-- } 문의 내역 끝 --></div>
+					</div>
+				</div>
+				<div class="profile_con pa_top">
+                    <div class="my_title">지갑</div>
+                    <div class="profile_bx">
+                        <ul class="clearfix">
+                            <li><a href="https://lxrnwallet.com/page/wallet.php"><span class="wallet_img"><img src="/images/pro_1.png" alt="" /></span></a></li>
+							<li><a href="https://lxrnwallet.com/page/wallet_lockup.php"><span class="wallet_img"><img src="/images/pro_2.png" alt="" /></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+				<div class="profile_btn">
+					<ul>
+						<li><a href="https://lxrnwallet.com/page/electroniccontract_terms.php">전자서명</a></li>
+						<li><a href="https://lxrnwallet.com/bbs/board.php?bo_table=notice">공지사항</a></li>
+						<li><a href="https://lxrnwallet.com/bbs/board.php?bo_table=faq">자주하는질문</a></li>
+						<li><a href="https://lxrnwallet.com/terms.php">이용약관</a></li>
+
+					</ul>
+				</div>
+
+				<div class="my_faq_wrap" style="display:none">
+					<div class="title_con">
+						<div class="sub_title01">FAQ</div>
+						<div class="plus_icon"><a href="https://lxrnwallet.com/bbs/board.php?bo_table=faq"><img src="/images/img/plus_w.png" alt="" /></a></div>
+					</div>
+					<div class="faq_wrap" style="color:#fff;">
+						<ul class="clearfix">
+													<li class="faq_list">
+								<p>
+									Assets in my wallet are gone								</p>
+								<span class="answer">
+									Due to the nature of the LXRN Wallet, which is built on the basis of real Ethereum, 
+if a delay occurs in the process of loading Ethereum data or a lag occurs 
+depending on the Internet environment, the asset is sometimes marked as 0. 
+However, this does not mean that the asset is disappeared.																	</span>
+							</li>
+													<li class="faq_list">
+								<p>
+									What is the lockup period								</p>
+								<span class="answer">
+									The lockup is set to 90 days.
+After 90 days, the lockup will be released and you can move your assets.																	</span>
+							</li>
+												</ul>
+					</div>
+
+				</div><!-- rection03 end -->
+
+				<div class="my_news_wrap" style="display:none">
+					<div class="title_con">
+						<div class="sub_title01">NEWS</div>
+						<div class="plus_icon"><a href="https://lxrnwallet.com/bbs/board.php?bo_table=notice"><img src="/images/img/plus_w.png" alt="" /></a></div>
+					</div>
+					<div class="news_con">
+						<ul class="clearfix">
+													<li>
+								<p><a href="https://lxrnwallet.com/bbs/board.php?bo_table=notice&amp;wr_id=3">백서 안내 (Whitepaper Guide)</a>
+									<span>2023-01-10</span>								
+								</p>
+							</li>
+													<li>
+								<p><a href="https://lxrnwallet.com/bbs/board.php?bo_table=notice&amp;wr_id=2">LXRN 문의 안내 (LXRN Inquiries)</a>
+									<span>2023-01-10</span>								
+								</p>
+							</li>
+												</ul>
+					</div>
+				</div><!-- rection03 end -->
+				
+				<div class="my_page_cont" style="display:none">
+					<div class="profile_btn my_bot_list">
+						<ul>
+							<li><a href="https://lxrnwallet.com/terms.php">Terms of service</a></li>
+							<li><a href="https://lxrnwallet.com/terms01.php">Privacy Statement</a></li>
+						</ul>
+					</div>
+				</div>
+
+            </div>
+			
+        </div><!-- container -->
+    </div><!-- sc -->
+</div><!-- index_wrap -->
+
+<script>
+function copy2() {
+	var obj = document.getElementById("code");
+	obj.select(); 
+	document.execCommand("copy"); 
+	obj.setSelectionRange(0, 0); 
+	alert('Your referral code has been copied.');
+}
+</script>
+
+
+
+    </div>
+</div>
+
+</div>
+
+<hr>
+<style>
+.ff_td{position: relative;}
+.ff_td span{color:#fff;}
+.ff_td.on span.txt_block{width:12px;height:12px;background:#000;border-radius:100px;margin:10px auto 0 auto;}
+.ff_td.ff_last:after{display:none}
+
+@media only screen and (max-width: 720px){
+.ff_td.on span.txt_block{width:1.6667vw;height:1.6667vw;background:#000;border-radius:13.8889vw;margin:1.3889vw auto 0 auto;}
+.ff_td01.on {border-radius: 6.9444vw;}
+.ff_td:after{height:5.5556vw;}
+
+}
+</style>
+
+<div class="footer_fixed">
+	<div class="footer_fixed_in">
+		<div class="footer_fixed_table">
+			<div class="ff_td ff_td01 ">
+							<a href="https://lxrnwallet.com">
+				<span class="ff_img"><img src="/images/ft_icon01.png" alt=""></span>
+				<span class="txt_block" style="color:#97979d">HOME</span>
+				</a>
+						</div>
+			<div class="ff_td ff_td01 ">
+							<a href="https://lxrnwallet.com/bbs/page.php?pid=wallet">
+				<span class="ff_img"><img src="/images/ft_icon02.png" alt=""></span>
+				<span class="txt_block" style="color:#97979d">WALLET</span>
+				</a>
+						</div>
+			<div class="ff_td ff_td01 ">
+									<a href="https://lxrnwallet.com/bbs/page.php?pid=wallet_lockup">
+					<span class="ff_img"><img src="/images/ft_icon03.png" alt=""></span>
+					<span class="txt_block" style="color:#97979d">LOCKUP</span>
+					</a>
+							</div>
+			<div class="ff_td ff_td01 ff_last on">
+									<a href="https://lxrnwallet.com/bbs/page.php?pid=mypage">
+					<span class="ff_img"><img src="/images/ft_icon04_on.png" alt=""></span>
+					<span class="txt_block"></span>
+					</a>
+							</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- } 하단 끝 -->
+
+<script>
+$(function() {
+    // 폰트 리사이즈 쿠키있으면 실행
+    font_resize("container", get_cookie("ck_font_resize_rmv_class"), get_cookie("ck_font_resize_add_class"));
+});
+</script>
+
+
+
+<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+<!--[if lte IE 7]>
+<script>
+$(function() {
+    var $sv_use = $(".sv_use");
+    var count = $sv_use.length;
+
+    $sv_use.each(function() {
+        $(this).css("z-index", count);
+        $(this).css("position", "relative");
+        count = count - 1;
+    });
+});
+</script>
+<![endif]-->
+
+
+<link rel="stylesheet" href="/js/swiper/swiper.min.css" />
+</body>
+</html>

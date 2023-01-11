@@ -21,7 +21,7 @@ class RegisterView(View):
     def dispatch(self, request, *args, **kwargs):
         # will redirect to the home page if a user tries to access the register page while logged in
         if request.user.is_authenticated:
-            return redirect(to='/')
+            return redirect(to='/index')
 
         # else process dispatch as it otherwise normally would
         return super(RegisterView, self).dispatch(request, *args, **kwargs)
@@ -38,6 +38,7 @@ class RegisterView(View):
 
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}')
+            
 
             return redirect(to='login')
 

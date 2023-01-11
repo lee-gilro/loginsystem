@@ -1,0 +1,415 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta property="og:image" content="https://lxrnwallet.com/images/ogimg0101.jpg">
+<meta name="msapplication-TileColor" content="#ffffff">
+<!-- <meta name="msapplication-TileImage" content="https://lxrnwallet.com/images/favicon.png"> -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+<title>공지사항 1 페이지 | LXRN</title>
+<link rel="stylesheet" href="https://lxrnwallet.com/css/mobile.css?ver=210618" rel="preload" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="https://lxrnwallet.com/js/font-awesome/css/font-awesome.min.css?ver=210618">
+<link rel="stylesheet" href="https://lxrnwallet.com/skin/board/notice/style.css?ver=210618">
+<!--[if lte IE 8]>
+<script src="https://lxrnwallet.com/js/html5.js"></script>
+<![endif]-->
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "https://lxrnwallet.com";
+var g5_bbs_url   = "https://lxrnwallet.com/bbs";
+var g5_is_member = "1";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "notice";
+var g5_sca       = "";
+var g5_editor    = "";
+var g5_cookie_domain = "";
+var g5_shop_url = "https://lxrnwallet.com/shop";
+</script>
+
+<script src="https://lxrnwallet.com/js/jquery-1.12.4.min.js?ver=210618"></script>
+<script src="https://lxrnwallet.com/js/jquery-migrate-1.4.1.min.js?ver=210618"></script>
+<script src="https://lxrnwallet.com/js/jquery.menu.js?ver=210618" async></script>
+<script src="https://lxrnwallet.com/js/common.js?ver=210618"></script>
+<script src="https://lxrnwallet.com/js/wrest.js?ver=210618" async></script>
+<script src="https://lxrnwallet.com/js/placeholders.min.js" async></script>
+</head>
+<body>
+<div id="hd_login_msg">님 로그인 중 <a href="https://lxrnwallet.com/bbs/logout.php">로그아웃</a></div>
+<style>
+#header{background:transparent;position: relative;margin:0 auto;width:100%;min-width:320px;z-index:1000;max-width:720px;}
+/* #header.on{background:#b9d2f7;} */
+.logo{text-align:center;margin:0 auto;position:absolute;left:30px;transform:translate(-0%,-50%);top:50%;}
+.logo .on_logo {display: none;}
+.logo.on .on_logo {display: block;}
+.logo.on .off_logo {display: none;}
+.hd_gnb01{display:block;position:absolute;left:30px;top:50%;transform:translateY(-50%);z-index:998;color:#fff;font-size:23px;border:1px solid #fff;border-radius:50px;width:190px;height:60px;line-height:60px;text-align:center}
+.hd_gnb01.on{display:block;color: #000; border:1px solid #000}
+.hd_gnb01 .on_lan {display: none;}
+.hd_gnb01.on .on_lan {display: inline-block;}
+.hd_gnb01.on .off_lan {display: none;}
+.hd_gnb01 img{margin-right:8px;}
+
+#gnb{display:block;position:fixed;top:0;right:0;height:100%;z-index:1005;width:600px;max-width:600px;-webkit-transform:translate3d(200%,0,0);
+transform:translate3d(200%,0,0);-webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;-ms-transition:all .5s ease-in-out;-o-transition:all .5s ease-in-out;transition:all .5s ease-in-out;
+-ms-overflow-style:none; scrollbar-width:none;overflow-y: scroll;background:#010101;padding-top:150px;}
+#gnb.show_gnb{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+#gnb::-webkit-scrollbar{display:none;}
+#gnb ul li {text-align:left;line-height: 68px;}
+#gnb ul > li > a{color:#fff;text-align:center;font-size:35px;font-weight:400}
+#gnb .gnb_inner{width:100%; max-width:720px; margin:0 auto;padding-left:30px;}
+#gnb .gnb_inner ul li a{position: relative;background-repeat: no-repeat;position: relative;padding: 30px 0px 30px 100px;/* opacity: .3; */}
+#gnb .gnb_inner ul li a.on{color:#efa021;opacity: 1;}
+#gnb .gnb_inner ul li:nth-child(1) a {background-image: url(/images/img/gnb_icon01.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(2) a {background-image: url(/images/img/gnb_icon02.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(3) a {background-image: url(/images/img/gnb_icon03.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(4) a {background-image: url(/images/img/gnb_icon04.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(5) a {background-image: url(/images/img/gnb_icon05.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(6) a {background-image: url(/images/img/gnb_icon06.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(7) a {background-image: url(/images/img/gnb_icon07.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(1) a.on {background-image: url(/images/img/gnb_icon01_on.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(2) a.on {background-image: url(/images/img/gnb_icon02_on.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(3) a.on {background-image: url(/images/img/gnb_icon03_on.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(4) a.on {background-image: url(/images/img/gnb_icon04_on.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(5) a.on {background-image: url(/images/img/gnb_icon05_on.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(6) a.on {background-image: url(/images/img/gnb_icon06_on.png);background-position: 10px 50%;}
+#gnb .gnb_inner ul li:nth-child(7) a.on {background-image: url(/images/img/gnb_icon07_on.png);background-position: 10px 50%;}
+
+
+.hd_top{width:100%; max-width:720px; height:100px; margin:0 auto; position:relative; z-index:7778;transition:background-color 0.3s ease-in-out;}
+.hd_top .sc{height:100%;}
+.gnb_bgbg {display:none;position:fixed;left:50%;top:0;;width:720px;height:100%;margin-left:-360px;background:rgba(0,0,0,.4);z-index:1001;}
+.hd_bottom{text-align:Center;padding:40px 0}
+.hd_bottom li{display:inline-block;padding-right: 9px;}
+.hd_bottom li:last-child{padding-right:0}
+
+/* 메뉴 */
+.menu_wrap {float:right;position:relative;width:30px;height:100px;}
+.menu_box {position:absolute;right:30px;top:50%;transform:translateY(-50%);z-index:998;margin-top:1px;}
+.menu-trigger,.menu-trigger span {display: inline-block;transition: all 0.4s;box-sizing: border-box;}
+.menu-trigger {position: relative;width: 30px;height:24px;cursor:pointer;}
+.menu-trigger span {position: absolute;right: 0;width: 8px;height: 8px;background-color: #111;border-radius: 100%;}
+.menu-trigger span:nth-of-type(1) {top:0;}
+.menu-trigger span:nth-of-type(2) {top:20px;}
+.menu-trigger span:nth-of-type(3) {right:20px;}
+.menu-trigger span:nth-of-type(4) {right:20px;top:20px}
+.menu-trigger span.on {background-color: #fff;}
+
+/* 2th bar 사라지고,  1st 3rd bar 회전하며 X  */
+.menu-trigger.active-1 span:nth-of-type(1) {transform:translateY(11px) rotate(-45deg);width:100%;border-radius:0;height:2px}
+.menu-trigger.active-1 span:nth-of-type(2) {transform:translateY(-11px) rotate(45deg);width:100%;border-radius:0;height:2px}
+.menu-trigger.active-1 span:nth-of-type(3) {opacity:0;}
+.menu-trigger.active-1 span:nth-of-type(4) {opacity:0;}
+.hd_center{font-size:35px;color:#fff;position: absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+@media (max-width: 720px) {
+.hd_center{font-size:4.8611vw;left:50%;top:50%;transform:translate(-50%,-50%)}
+#header{width:100%;min-width:44.4444vw;max-width:100.0000vw;}
+.logo{margin:0 auto;left:4.1667vw;transform:translate(-0%,-50%);top:50%;}
+.logo img {width:34.8611vw}
+.logo.back img{width:2.6389vw;height:5.1389vw}
+.logo.on{display:none}
+.hd_gnb01{left:4.1667vw;top:50%;transform:translateY(-50%);font-size:3.1944vw;width:26.3889vw;height:8.3333vw;line-height:8.3333vw;}
+.hd_gnb01 img{margin-right:1.1111vw;width:3.3333vw;height:3.3333vw}
+#gnb{top:0;right:0;height:100%;width:83.3333vw;max-width:83.3333vw;-webkit-transform:translate3d(200%,0,0);
+transform:translate3d(200%,0,0);-webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;-ms-transition:all .5s ease-in-out;-o-transition:all .5s ease-in-out;transition:all .5s ease-in-out;
+-ms-overflow-style:none; scrollbar-width:none;overflow-y: scroll;background:#010101;padding-top:20.8333vw;}
+#gnb.show_gnb{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+#gnb::-webkit-scrollbar{}
+#gnb ul li {line-height: 9.4444vw;}
+#gnb ul > li > a{font-size:4.8611vw;font-weight:400}
+#gnb .gnb_inner{width:100%; max-width:100.0000vw; margin:0 auto;padding-left:4.1667vw;}
+#gnb .gnb_inner ul li a{padding: 4.1667vw 0.0000vw 4.1667vw 13.8889vw;}
+#gnb .gnb_inner ul li:nth-child(1) a {background-image: url(/images/img/gnb_icon01.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(2) a {background-image: url(/images/img/gnb_icon02.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(3) a {background-image: url(/images/img/gnb_icon03.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(4) a {background-image: url(/images/img/gnb_icon04.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(5) a {background-image: url(/images/img/gnb_icon05.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(6) a {background-image: url(/images/img/gnb_icon06.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(7) a {background-image: url(/images/img/gnb_icon07.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(1) a.on {background-image: url(/images/img/gnb_icon01_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(2) a.on {background-image: url(/images/img/gnb_icon02_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(3) a.on {background-image: url(/images/img/gnb_icon03_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(4) a.on {background-image: url(/images/img/gnb_icon04_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(5) a.on {background-image: url(/images/img/gnb_icon05_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(6) a.on {background-image: url(/images/img/gnb_icon06_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+#gnb .gnb_inner ul li:nth-child(7) a.on {background-image: url(/images/img/gnb_icon07_on.png);background-position: 1.3889vw 50%;background-size:8.3333vw 8.3333vw}
+
+.hd_top{width:100%; max-width:100.0000vw; height:13.8889vw; margin:0 auto;  transition:background-color 0.3s ease-in-out;}
+.hd_top .sc{height:100%;}
+.hd_top .hd_swap {line-height: 4.8611vw;font-size: 2.7778vw;left: 4.1667vw;top: 4.1667vw;}
+.hd_top .hd_swap img {margin-right: 0.6944vw;}
+.hd_top .hd_swap img.icon_swap {width: 4.8611vw;}
+.hd_top .hd_swap img.icon_send {width: 4.1667vw;}
+.hd_bottom{padding:5.5556vw 0}
+.hd_bottom li{padding-right: 1.2500vw;}
+.hd_bottom li:last-child{padding-right:0}
+
+/* 메뉴 */
+.menu_wrap {width:4.1667vw;height:13.8889vw;}
+.menu_box {right:4.1667vw;top:50%;transform:translateY(-50%);margin-top:0.1389vw;}
+.menu-trigger,.menu-trigger span {transition: all 0.4s;}
+.menu-trigger {width: 4.1667vw;height:3.3333vw;cursor:pointer;}
+.menu-trigger span {right: 0;width: 1.1111vw;height: 1.1111vw;border-radius: 100%;}
+.menu-trigger span:nth-of-type(1) {top:0;}
+.menu-trigger span:nth-of-type(2) {top:2.7778vw;}
+.menu-trigger span:nth-of-type(3) {right:2.7778vw;}
+.menu-trigger span:nth-of-type(4) {right:2.7778vw;top:2.7778vw}
+.menu-trigger span.on {}
+
+/* 2th bar 사라지고,  1st 3rd bar 회전하며 X  */
+.menu-trigger.active-1 span:nth-of-type(1) {transform:translateY(1.5278vw) rotate(-45deg);width:100%;border-radius:0;height:0.2778vw}
+.menu-trigger.active-1 span:nth-of-type(2) {transform:translateY(-1.5278vw) rotate(45deg);width:100%;border-radius:0;height:0.2778vw}
+.menu-trigger.active-1 span:nth-of-type(3) {opacity:0;}
+.menu-trigger.active-1 span:nth-of-type(4) {opacity:0;}
+}
+</style>
+
+<style>
+.menu-trigger span{background-color: #111111;}
+</style>
+<style>
+#header{position: absolute;left:50%;margin:0 auto;margin-left:-360px;}
+.menu-trigger span{background-color: #fff;}
+@media (max-width: 720px) {
+#header{position: absolute;left:0;margin:0 auto;margin-left:0;}
+}
+</style>
+<!-- 상단 시작 { -->
+<div id="header">
+    	<div class="hd_top">
+		<div class="sc clearfix">
+						<a class="logo back" href="https://lxrnwallet.com">
+				<img src="/images/back.png" alt="" class=""/>
+			</a>
+						<div class="hd_center gmarketM">NOTICE</div>
+			<div class="menu_wrap">
+				<div class="menu_box">
+					<span class="tit_name"></span>
+					<div class="menu-trigger gnb_btn01" onclick="imgToggle()">
+					  <span></span>
+					  <span></span>
+					  <span></span>
+					  <span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="gnb">
+		<div class="gnb_inner">
+			<ul class="clearfix">
+				<li><a href="https://lxrnwallet.com/bbs/page.php?pid=wallet" class="">Wallet</a></li>
+				<li><a href="https://lxrnwallet.com/bbs/page.php?pid=wallet_lockup" class="">Lockup</a></li>
+				<li><a href="https://lxrnwallet.com/bbs/page.php?pid=electroniccontract_terms" class="">Electronic contract</a></li>
+				<li><a href="https://lxrnwallet.com/bbs/board.php?bo_table=notice" class="on">Notice</a></li>
+				<li><a href="https://lxrnwallet.com/bbs/board.php?bo_table=faq" class="">FAQ</a></li>
+				<li><a href="https://lxrnwallet.com/bbs/page.php?pid=mypage" class="">My page</a></li>
+								<li><a href="https://lxrnwallet.com/bbs/logout.php" class="">Logout</a></li>
+							</ul>	
+		</div>
+	</div>
+	<div class="gnb_bgbg"><a class="gnb_close" href="javascript:;"></a></div>
+</div>
+
+<script>
+$(function(){
+	$('.gnb_btn01').click(function(){
+		$('#header').toggleClass('on');
+		$('.hd_gnb01').toggleClass('on');
+		//$('#gnb').stop().slideToggle(300);
+		$("#gnb").toggleClass('show_gnb');
+		$(".gnb_bgbg").fadeToggle();
+	});
+	$(".gnb_bgbg").click(function(){
+	//	$("#gnb").stop().removeClass('show_gnb');
+	//	$(this).stop().fadeOut(400);
+	//	$(".gnb_btn").removeClass('show_gnb');
+	});	
+	var scroll_pos = 0;
+	const menuTrigger = document.querySelector('.menu-trigger');
+
+	menuTrigger.addEventListener('click', (event) => {
+	  event.currentTarget.classList.toggle('active-1');
+	});
+	$('.menu-trigger').on('click',function(){
+		//$('#gnb').toggle();
+		$('.logo').toggleClass('on');
+		$('.hd_swap').toggleClass('on');
+		$('.menu-trigger span').toggleClass('on');
+		$('.menu_wrap').toggleClass('on');
+		$('.menu-trigger').on('click',function(){
+			$('.sub_full').toggle();
+		});
+	});
+});
+</script>
+
+<div class="all_wrap">
+
+<style>
+.sc_inner{padding-top:0}
+</style>
+<div class="sc_top sct02">
+</div>
+<div class="index_wrap bo_wrap">
+	<div class="container">
+		<div class="sc_inner">
+
+
+
+<style>
+.btn_bo_user li {background: transparent;}
+.news_con ul li p{padding-bottom:10px;}
+@medea only screen and (max-width: 720px){
+
+}
+</style>
+
+<!-- 게시판 목록 시작 { -->
+<div id="bo_list" style="width:100%">
+
+    <!-- 게시판 카테고리 시작 { -->
+        <!-- } 게시판 카테고리 끝 -->
+    
+    <form name="fboardlist" id="fboardlist" action="https://lxrnwallet.com/bbs/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
+    
+    <input type="hidden" name="bo_table" value="notice">
+    <input type="hidden" name="sfl" value="">
+    <input type="hidden" name="stx" value="">
+    <input type="hidden" name="spt" value="">
+    <input type="hidden" name="sca" value="">
+    <input type="hidden" name="sst" value="wr_num, wr_reply">
+    <input type="hidden" name="sod" value="">
+    <input type="hidden" name="page" value="1">
+    <input type="hidden" name="sw" value="">
+
+	
+	
+	<div class="news_con">
+		<ul class="clearfix">
+						<li>
+								<a href="https://lxrnwallet.com/bbs/board.php?bo_table=notice&amp;wr_id=3">
+					<p>백서 안내 (Whitepaper Guide)</p>
+					<span>2023-01-10</span>
+					<!-- <span>12:40</span> -->
+				</a>
+			</li>
+						<li>
+								<a href="https://lxrnwallet.com/bbs/board.php?bo_table=notice&amp;wr_id=2">
+					<p>LXRN 문의 안내 (LXRN Inquiries)</p>
+					<span>2023-01-10</span>
+					<!-- <span>12:37</span> -->
+				</a>
+			</li>
+						<li>
+								<a href="https://lxrnwallet.com/bbs/board.php?bo_table=notice&amp;wr_id=1">
+					<p>거래소 안내 (Cryptocurrency Exchange Information)</p>
+					<span>2023-01-10</span>
+					<!-- <span>12:21</span> -->
+				</a>
+			</li>
+								</ul>
+	</div>
+
+	<!-- 페이지 -->
+		<!-- 페이지 -->  
+    </form>
+
+</div>
+
+
+<!-- } 게시판 목록 끝 -->
+
+		</div>
+	</div>
+</div>
+
+    </div>
+</div>
+
+</div>
+
+<hr>
+<style>
+.ff_td{position: relative;}
+.ff_td span{color:#fff;}
+.ff_td.on span.txt_block{width:12px;height:12px;background:#000;border-radius:100px;margin:10px auto 0 auto;}
+.ff_td.ff_last:after{display:none}
+
+@media only screen and (max-width: 720px){
+.ff_td.on span.txt_block{width:1.6667vw;height:1.6667vw;background:#000;border-radius:13.8889vw;margin:1.3889vw auto 0 auto;}
+.ff_td01.on {border-radius: 6.9444vw;}
+.ff_td:after{height:5.5556vw;}
+
+}
+</style>
+
+<div class="footer_fixed">
+	<div class="footer_fixed_in">
+		<div class="footer_fixed_table">
+			<div class="ff_td ff_td01 ">
+							<a href="https://lxrnwallet.com">
+				<span class="ff_img"><img src="/images/ft_icon01.png" alt=""></span>
+				<span class="txt_block" style="color:#97979d">HOME</span>
+				</a>
+						</div>
+			<div class="ff_td ff_td01 ">
+							<a href="https://lxrnwallet.com/bbs/page.php?pid=wallet">
+				<span class="ff_img"><img src="/images/ft_icon02.png" alt=""></span>
+				<span class="txt_block" style="color:#97979d">WALLET</span>
+				</a>
+						</div>
+			<div class="ff_td ff_td01 ">
+									<a href="https://lxrnwallet.com/bbs/page.php?pid=wallet_lockup">
+					<span class="ff_img"><img src="/images/ft_icon03.png" alt=""></span>
+					<span class="txt_block" style="color:#97979d">LOCKUP</span>
+					</a>
+							</div>
+			<div class="ff_td ff_td01 ff_last ">
+									<a href="https://lxrnwallet.com/bbs/page.php?pid=mypage">
+					<span class="ff_img"><img src="/images/ft_icon04.png" alt=""></span>
+					<span class="txt_block" style="color:#97979d">MYPAGE</span>
+					</a>
+							</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- } 하단 끝 -->
+
+<script>
+$(function() {
+    // 폰트 리사이즈 쿠키있으면 실행
+    font_resize("container", get_cookie("ck_font_resize_rmv_class"), get_cookie("ck_font_resize_add_class"));
+});
+</script>
+
+
+
+<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+<!--[if lte IE 7]>
+<script>
+$(function() {
+    var $sv_use = $(".sv_use");
+    var count = $sv_use.length;
+
+    $sv_use.each(function() {
+        $(this).css("z-index", count);
+        $(this).css("position", "relative");
+        count = count - 1;
+    });
+});
+</script>
+<![endif]-->
+
+
+<link rel="stylesheet" href="/js/swiper/swiper.min.css" />
+</body>
+</html>
+
+<!-- 사용스킨 : notice -->
